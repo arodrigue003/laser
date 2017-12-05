@@ -15,13 +15,18 @@ ser = serial.Serial("/dev/ttyAMA0", bd, timeout=1.0)
 #    print('port open')
 
 
-outStr = bytes(bytearray([i for i in range(0,256)]))
+outStr = bytes(bytearray([i for i in range(55,256)]))
 
 
 #bytes_sent = ser.write(open("tx.py", "rb").read())
 #print(outStr)
-bytes_sent = ser.write(outStr)
-bytes_sent += ser.write('\n');
+while(True):
+    bytes_sent = ser.write(outStr)
+    for i in range(0,10):
+        bytes_sent += ser.write('\n');
+        time.sleep(0.01)
+    time.sleep(1)
+    print("sent")
 #ser.write("\n<<EOF>>\n")
 #print "Envoyé ", bytes_sent, " octets"
 
