@@ -18,13 +18,36 @@ readline = lambda : iter(lambda:ser.read(1),"\n")
 #            break #done so stop accumulating lines
 #        print >> outfile,line
         
+verite = bytes(bytearray([i for i in range(55,256)]))
+
 while True:
     data = ser.readline()
     if data:
-        string = str(data)
-        print string
+        if data[0] == '\n':
+            continue
+        #string = str(data)
+
+        array = []
+        for i in range(0,200):
+            try:
+                #print("lul")
+                array.append(data[i])
+                #print("ok");
+            except:
+                break;
+        
+
+        ok = 0;
+        for i in range(0,len(array)):
+            if(verite[i] == array[i]):
+                ok+=1;
+
+        #print array
+        print( str(ok) + " : " + str(len(array)) + "/" + str(len(verite)))
+        sys.stdout.flush()
         #print string
-        break;
+        #print string
+        #break;
     else:
         print "rien recu"
     #print string
