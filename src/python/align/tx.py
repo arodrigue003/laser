@@ -4,7 +4,11 @@ import serial
 import time
 import os, sys
 
-bd = sys.argv[1]
+sys.path.append("../modules")
+from baudrate import checkBaudrateHelp
+bd = checkBaudrateHelp(sys.argv[1])
+if(bd == -1):
+    exit(0)
 
 print("Baudrate: " + bd)
 # configure the serial connections (the parameters differs on the device you are connecting to)

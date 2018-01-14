@@ -4,9 +4,13 @@ import base64
 
 import os, sys
 
-bd = sys.argv[1]
+sys.path.append("../modules")
+from baudrate import checkBaudrateHelp
+bd = checkBaudrateHelp(sys.argv[1])
+if(bd == -1):
+    exit(0)
 
-print("Baudrate: " + bd);
+print("Baudrate: " + str(bd));
 
 ser = serial.Serial("/dev/ttyAMA0", bd, timeout=1.0)
 
