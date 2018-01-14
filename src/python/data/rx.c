@@ -58,7 +58,7 @@ int main(int argc, char **argv)
     }
 
     // opening out file
-    int out = open("out", O_WRONLY | O_CREAT | S_IRUSR | S_IWUSR);
+    int out = open("out", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
     if (out < 0) {
 	fprintf(stderr, "Cannot open file out\n");
 	return EXIT_FAILURE;
