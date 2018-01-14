@@ -16,7 +16,7 @@ if(bd == -1):
 
 print("Baudrate: " + str(bd));
 
-ser = serial.Serial("/dev/ttyAMA0", bd, timeout=1.0)
+ser = serial.Serial("/dev/ttyAMA0", bd, timeout=1.5)
 
 readline = lambda : iter(lambda:ser.read(1),"\n")
 #with open("somefile.txt","wb") as outfile:
