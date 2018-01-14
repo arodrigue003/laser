@@ -23,24 +23,28 @@ while True:
     rcvd = ser.readline()
     if rcvd:
         if(state == 0):
-            data = base64.b64decode(str(rcvd))
+            data = rcvd.rstrip()
         elif(state == 1):
-            md5 = str(rcvd)
+            md5 = rcvd.rstrip()
             print("Checking md5...")
-            print("rcved: ", md5)
             mmd5 = hashlib.md5(data).hexdigest()
-            print("cmptd: ", mmd5)
             if(mmd5 == md5):
                 print("ok! Enter file name or press enter to cancel:")
-                filename = sys.stdin.readline();
+                filename = sys.stdin.readline().rstrip();
                 if(filename == ""):
                     print("cancelled")
                 else:
+                    data = base64.b64decode(data)
                     file = open(filename, "wb")
                     file.write(data)
                     file.close()
+                    print("Data written in file " + filename)
+            else:
+                print("!! ERROR in md5. Try to realign the lasers")
+                print("md5 recieved: " + md5)
+                print("md5 computed: " + mmd5)
             
         state = (state+1)%2
     else:
-        print "waiting."
+        print "."
 
