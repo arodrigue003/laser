@@ -64,11 +64,11 @@ int main(int argc, char **argv)
 	return EXIT_FAILURE;
     }
 
-
+    //writing to the output file
     char rx_buffer[256];
     while(1){
 	int rx_length = read(fd, rx_buffer, 256);
-	write(out, rx_buffer, 256);
+	write(out, rx_buffer, rx_length);
     }
     
 }
