@@ -22,8 +22,24 @@ state = 0; # 0: waiting for data. 1: waiting for md5
 while True:
     rcvd = ser.readline()
     if rcvd:
+        print("en cours de reception...")
         if(state == 0):
-            data = rcvd.rstrip()
+            if(rcvd[0] == "<"):
+                print("waiting for md5...")
+                state = 1
+                continue
+            data += rcvd[0:-1] # Should be faster
+            #data += rcvd.rstrip()
+            ##############
+            #md5 = ser.readline()[0:-1]
+            #mmd5 = hashlib.md5(rcvd[0:-1]).hexdigest()
+            #if(md5 == mmd5):
+            #    print("-- ok "+ md5)
+            #else:
+            #    print("ERROR")
+            #    print(" md5:" + md5)
+            #    print("mmd5:" + mmd5)
+            #############
         elif(state == 1):
             md5 = rcvd.rstrip()
             print("Checking md5...")
@@ -43,8 +59,8 @@ while True:
                 print("!! ERROR in md5. Try to realign the lasers")
                 print("md5 recieved: " + md5)
                 print("md5 computed: " + mmd5)
-            
-        state = (state+1)%2
+            state = 0
+            data = ""
     else:
         print "."
 
