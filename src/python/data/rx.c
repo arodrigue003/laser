@@ -8,7 +8,7 @@
 int main(int argc, char **argv)
 {
     int fd;
-    int baudrate = B9600;
+    int baudrate = B230400;
     const char *path = "/dev/ttyAMA0";
 
     if (argc >= 2) {
@@ -58,7 +58,7 @@ int main(int argc, char **argv)
     }
 
     // opening out file
-    int out = open("out", O_WRONLY | O_CREAT);
+    int out = open("out", O_WRONLY | O_CREAT | S_IRUSR | S_IWUSR);
     if (out < 0) {
 	fprintf(stderr, "Cannot open file out\n");
 	return EXIT_FAILURE;
