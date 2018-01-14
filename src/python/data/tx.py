@@ -17,17 +17,20 @@ bd = checkBaudrateHelp(sys.argv[1])
 
 filename = dirpath + "/default.txt"
 if(len(sys.argv) < 3):
-    print("Default file will be sent: ", filename)
+    print("Default file will be sent: " + filename)
 else:
-    filename = argv[2]
-    print("File ", filename, " will be sent")
+    filename = sys.argv[2]
+    print("File " + filename + " will be sent")
 
 
 
 # configure the serial connections (the parameters differs on the device you are connecting to)
 ser = serial.Serial("/dev/ttyAMA0", bd, timeout=1.0)
 
-string = open(filename, "rb").read()
+size = os.path.getsize(filename)*8
+print("Expected transmission time: " + str((size/bd)*1.5) + "s")
+
+string = base64.b64encode(open(filename, "rb").read())
 md5 = hashlib.md5(string).hexdigest()
 
 start = time.time();
@@ -39,6 +42,6 @@ ser.write("\n")
 
 end = time.time();
 
-print("Envoyé ", bytes_sent, " + ", md5_len, " octets en ", (end - start), " sec")
-print("md5: ", md5)
+print("Envoyé " + str(bytes_sent) + " + " + str(md5_len) + " octets en " + str(end - start) + " sec")
+print("md5: " + md5)
 
