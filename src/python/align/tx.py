@@ -4,13 +4,17 @@ import serial
 import time
 import os, sys
 
-sys.path.append("../modules")
+sys.path.append(os.path.dirname(os.path.realpath(__file__)) +"/../modules")
 from baudrate import checkBaudrateHelp
+if(len(sys.argv) < 2):
+    checkBaudrateHelp("-h");
+    exit(1)
+
 bd = checkBaudrateHelp(sys.argv[1])
 if(bd == -1):
     exit(0)
 
-print("Baudrate: " + bd)
+print("Baudrate: " + str(bd))
 # configure the serial connections (the parameters differs on the device you are connecting to)
 ser = serial.Serial("/dev/ttyAMA0", bd, timeout=1.0)
 

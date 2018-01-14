@@ -4,8 +4,12 @@ import base64
 
 import os, sys
 
-sys.path.append("../modules")
+sys.path.append(os.path.dirname(os.path.realpath(__file__)) +"/../modules")
 from baudrate import checkBaudrateHelp
+if(len(sys.argv) < 2):
+    checkBaudrateHelp("-h");
+    exit(1)
+
 bd = checkBaudrateHelp(sys.argv[1])
 if(bd == -1):
     exit(0)
