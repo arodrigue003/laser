@@ -19,7 +19,7 @@ def read_in_chunks(file_object, chunk_size=1024):
 def get_sleep_time(filesize):
     return 0
 dirpath = os.path.dirname(os.path.realpath(__file__))
-sys.path.append( dirpath + "/../modules")
+sys.path.append( dirpath + "/../python/modules")
 from baudrate import checkBaudrateHelp
 if(len(sys.argv) < 2):
     checkBaudrateHelp("-h");

@@ -5,7 +5,7 @@ import base64
 import hashlib
 import os
 
-sys.path.append(os.path.dirname(os.path.realpath(__file__)) +"/../modules")
+sys.path.append(os.path.dirname(os.path.realpath(__file__)) +"/../python/modules")
 from baudrate import checkBaudrateHelp
 if(len(sys.argv) < 2):
     checkBaudrateHelp("-h");
