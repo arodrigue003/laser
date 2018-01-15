@@ -1,6 +1,6 @@
 
 def checkBaudrateHelp(bd):
-    bd_table = [110,1200,2400,9600,14400,19200,38400,57600,76800,115200,230400,460800]
+    bd_table = [110,1200,2400,9600,14400,19200,38400,57600,76800,115200,230400,460800,921600]
 
     if(bd == "-h" or bd == "--help"):
         print("Parameter: <brudrate>")
@@ -16,12 +16,13 @@ def checkBaudrateHelp(bd):
 [9] 76800\n\
 [10] 115200\n\
 [11] 230400\n\
-[12] 460800")
+[12] 460800\n\
+[13] 921600")
         print("You may use the index instead of the true baudrate. You may also use other baudrates values without any warranty")
         return -1; 
 
     bd_int = int(bd)
-    if(bd_int <= 12):
+    if(bd_int <= len(bd_table)):
         return bd_table[bd_int-1]
     else:
         return bd_int

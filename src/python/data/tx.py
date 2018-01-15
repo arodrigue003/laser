@@ -60,12 +60,12 @@ for chunk in read_in_chunks(fd,33333):
 	Ubytes_sent += ser.write(encoded)
         ser.write("\n")
         Tbytes_sent += 1
-#######################
+        #######################
         #md5 = hashlib.md5(encoded).hexdigest()
         #ser.write(md5)
         #ser.write("\n")
         #Tbytes_sent += len(md5) + 1
-#######################
+        #######################
         print(str(floor(100*Ubytes_sent/sizeB)) + "% ")
         if bd > 150000: #completement arbitraire, il faudrait une formule en fonction bd et sizeB
             time.sleep(0.6)
