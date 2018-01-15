@@ -27,7 +27,7 @@ if(len(sys.argv) < 2):
 
 bd = checkBaudrateHelp(sys.argv[1])
 
-filename = dirpath + "/default.txt"
+filename = dirpath + "/../../../test/default.txt"
 if(len(sys.argv) < 3):
     print("Default file will be sent: " + filename)
 else:
