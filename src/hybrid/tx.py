@@ -73,10 +73,10 @@ for chunk in read_in_chunks(fd,33333):
 ser.write("<\n")
 md5 = hashlib.md5(string).hexdigest()
 md5_len = ser.write(md5)
-ser.write("\n")x
+ser.write("\n")
 Tbytes_sent += 2 + len(md5) + 1
 Tbytes_sent += Ubytes_sent
-set.write(">");
+set.write(">")
 
 end = time.time()
 elapsed = end-start
