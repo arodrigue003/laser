@@ -76,7 +76,7 @@ md5_len = ser.write(md5)
 ser.write("\n")
 Tbytes_sent += 2 + len(md5) + 1
 Tbytes_sent += Ubytes_sent
-set.write(">")
+ser.write(">")
 
 end = time.time()
 elapsed = end-start
