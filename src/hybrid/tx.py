@@ -39,6 +39,7 @@ else:
 # configure the serial connections (the parameters differs on the device you are connecting to)
 ser = serial.Serial("/dev/ttyAMA0", bd, timeout=1.0)
 
+# compute estimated time
 sizeB = os.path.getsize(filename)
 size = sizeB *8 
 sizeB = ceil(sizeB / 3) * 4
@@ -60,16 +61,14 @@ for chunk in read_in_chunks(fd,33333):
 	Ubytes_sent += ser.write(encoded)
         ser.write("\n")
         Tbytes_sent += 1
-#######################
+        # Uncomment followings lines to send the hash of each bloc, you need to also do it in rx.py
         #md5 = hashlib.md5(encoded).hexdigest()
         #ser.write(md5)
         #ser.write("\n")
         #Tbytes_sent += len(md5) + 1
-#######################
         print(str(floor(100*Ubytes_sent/sizeB)) + "% ")
-        #if bd > 150000: #completement arbitraire, il faudrait une formule en fonction bd et sizeB
-        #    time.sleep(0.6)
 
+# sending hash
 ser.write("<\n")
 md5 = hashlib.md5(string).hexdigest()
 md5_len = ser.write(md5)
@@ -81,6 +80,7 @@ ser.write(">")
 end = time.time()
 elapsed = end-start
 
+# computing statistics of the file transfert
 print("Total " + 
         str(Tbytes_sent) + " octets en " + str(elapsed) + " sec: "+
         str(Tbytes_sent/elapsed) + " o/s")

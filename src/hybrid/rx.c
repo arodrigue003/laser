@@ -12,6 +12,7 @@ int main(int argc, char **argv)
   int baudrate = baudrates[11-1];
   const char *path = "/dev/ttyAMA0";
   
+  // argument parsing
   if (argc >= 2) {
     if (!strcmp(argv[1], "-h") || !strcmp(argv[1], "--help")) {
       fprintf(stderr, "Usage: %s baudrate [%d] path [%s]\n", argv[0], baudrate, path);
