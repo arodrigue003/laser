@@ -17,7 +17,7 @@ src
  . . . rx.py
  . . detect : permet de détecter sur quelle Raspberry le laser est connecté
  . . . detect.py
- . . module : renvoit les vitesses utilisables
+ . . module : renvoie les vitesses utilisables
  . . . baudrate.py
  . . text : permet l'échange de fichiers au format texte (ASCII)
  . . . tx.py
