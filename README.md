@@ -41,6 +41,7 @@ test : différents fichiers pour tester la transmission de fichiers
  . bigtext.txt
  . default.txt
  . mountain.jpg
+old : sources de l'ancien projet
 ```
 
 # Prérequis
