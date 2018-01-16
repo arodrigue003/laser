@@ -1,8 +1,8 @@
-# Introduction
+# Projet Challenge laser
 
-Ce projet permet de tester l'envoi et la reception de n'importe quel type de fichier à l'aide entre deux Raspberry Pi à l'aide d'une paire d'émetteur et de récepteur laser.
+Ce projet permet de tester l'envoi et la réception de n'importe quel type de fichier entre deux Raspberry Pi à l'aide d'une paire d'émetteur et de récepteur laser.
 
-# Organisation
+## Organisation
 
 ```
 Rapport
@@ -44,15 +44,15 @@ test : différents fichiers pour tester la transmission de fichiers
 old : sources de l'ancien projet
 ```
 
-# Prérequis
+## Prérequis
 
-Attention, veuillez toujour lancer un script depuis le répertoire où il se situe.
+Attention, veuillez toujours lancer un script depuis le répertoire où il se situe.
 
 * Brancher correctement l'émetteur et le récepteur (cf rapport.pdf)
 * Savoir quelle raspberry émet (detect.py fait clignoter le laser de celle-ci si tel est le cas)
 * Les aligner (avec les programmes situés dans le dossier align)
 
-# Utilisation
+## Utilisation
 
 * Aller dans le répertoire des scripts que l'on désire tester.
 * Lancer le script rx.py avec un certain baud rate sur la carte réceptrice.
@@ -60,13 +60,29 @@ Attention, veuillez toujour lancer un script depuis le répertoire où il se sit
 * Lancer le script tx.py avec le baud rate et le fichier à envoyer en argument sur la carte émettrice.
 * Suivre alors les instructions des différents scripts.
 
-# Limites
+## Limites
 
 * Il est très difficile d'aligner le laser pour un baud rate de 13 ou plus.
 * Les scripts en python pure ne fonctionneront pas pour un baud rate de 12 ou plus.
 * Le programme hybride ne fonctionnera pas pour un baud rate de 14 ou plus.
 
-# Auteurs 
+## Baud rates utilisés
+```
+[1] 110
+[2] 1200
+[3] 2400
+[4] 9600
+[5] 14400
+[6] 19200
+[7] 38400
+[8] 57600
+[9] 76800
+[10] 115200
+[11] 230400
+[12] 460800
+[13] 921600
+```
+## Auteurs 
 
 PR311 - Développement système
 Année universitaire 2017 - 2018
