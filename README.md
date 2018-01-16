@@ -23,7 +23,7 @@ src
  . . . tx.py
  . . . rx.py
  . hybrid : solution utilisant du C et du python, 
-            permet l'échange de fichiers de tout type à une vitesse plus élevé
+            permet l'échange de fichiers de tout type à une vitesse plus élevée
  . . tx.py
  . . rx.py
  . . rx.c
@@ -64,7 +64,7 @@ Attention, veuillez toujour lancer un script depuis le répertoire où il se sit
 
 * Il est très difficile d'aligner le laser pour un baud rate de 13 ou plus.
 * Les scripts en python pure ne fonctionneront pas pour un baud rate de 12 ou plus.
-* le programme hybride ne fonctionnera pas pour un baud rate de 14 ou plus.
+* Le programme hybride ne fonctionnera pas pour un baud rate de 14 ou plus.
 
 # Auteurs 
 
