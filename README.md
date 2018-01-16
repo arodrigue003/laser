@@ -57,13 +57,13 @@ Attention, veuillez toujour lancer un script depuis le répertoire où il se sit
 * Aller dans le répertoire des scripts que l'on désire tester.
 * Lancer le script rx.py avec un certain baud rate sur la carte réceptrice.
 * Dans le cas d'hybrid, compiler d'abord rx.c (make rx).
-* Lancer le script tx.py avec le baud rate et le fichier à envoyer en argument sur la carte émetrice.
+* Lancer le script tx.py avec le baud rate et le fichier à envoyer en argument sur la carte émettrice.
 * Suivre alors les instructions des différents scripts.
 
 # Limites
 
 * Il est très difficile d'aligner le laser pour un baud rate de 13 ou plus.
-* Les scipts en python pure ne fonctionnerons pas pour un baud rate de 12 ou plus.
+* Les scripts en python pure ne fonctionneront pas pour un baud rate de 12 ou plus.
 * le programme hybride ne fonctionnera pas pour un baud rate de 14 ou plus.
 
 # Auteurs 
